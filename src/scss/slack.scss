@@ -1,0 +1,12 @@
+body {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 24vw 1fr;
+}
