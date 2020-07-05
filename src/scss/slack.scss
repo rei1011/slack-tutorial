@@ -2,11 +2,115 @@ body {
   width: 100%;
 }
 
+
+.container {
+  display:grid;
+  grid-template-rows: 38px 1fr;
+  height: 100%;
+}
+
+
 .header {
   text-align: center;
+  background-color: #350D36;
+  color: #DDD7DD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #3F0D40;
+  color: #FFFFFF;
+  max-width: 275px;
+
+  .account {
+    color: #FFFFFF;
+    border-top: solid 0.5px;
+    border-bottom: solid 0.5px;
+    border-color: rgb(82,38,83);
+    height: 64px;
+  }
+}
+
 
 .workspace {
   display: grid;
+  height: 100%;
   grid-template-columns: 24vw 1fr;
 }
+
+
+.message-are {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #989798;
+  border-radius: 2px;
+  margin-bottom: 21px;
+
+  textarea {
+    border: 0px;
+    border-bottom: 1px solid #989798;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+.notification-bar {
+  height: 24px;
+}
+
+
+.display-message {
+  display:flex;
+  flex-direction: column;	
+  justify-content:flex-end;	
+  height: calc(100% - 61px);
+}
+
+
+.operation {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    background-color: #017859;
+  
+    &:focus {
+      outline: none;
+    }
+  
+    &:disabled {
+      background-color: #FFFFFF;
+    }
+  
+    .sendicon.sendable {
+      color: white;    
+    }
+  }
+}
+
+
