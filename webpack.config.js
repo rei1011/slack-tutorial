@@ -43,7 +43,21 @@ module.exports = {
           }
         }
       ]
-    }]
+    },
+    {
+      test: /\.(gif|png|jpg|svg)$/,
+      include: path.resolve(__dirname, 'src/img'),
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 51200,
+            name: './src/img/[name].[ext]'
+          }
+        }
+      ]
+  }
+  ]
   },
   output: {
     path: __dirname + "/src/",

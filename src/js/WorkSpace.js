@@ -1,6 +1,8 @@
 import React from "react";
 import { observer } from "mobx-react";
 import MessageState from "./MessageState";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 @observer
 export default class WorkSpace extends React.Component {
@@ -9,6 +11,12 @@ export default class WorkSpace extends React.Component {
 
   onClick() {
     this.messageState.setMessage(this.refs.messageForm.value);
+    this.refs.messageForm.value="";
+    this.messageState.messageButtonIsShow(this.refs.messageForm.value);
+  }
+
+  onChange() {
+    this.messageState.messageButtonIsShow(this.refs.messageForm.value);
   }
 
   render() {
@@ -27,13 +35,22 @@ export default class WorkSpace extends React.Component {
               <span>group</span>
             </div>
           </div>
-          <div className="message-are">
-            <div className="display-message">
-              {this.messageState.messageList.map(message => <p>{message}</p>)}
-            </div>
-            <div className="message-form">
-              <textarea ref="messageForm" name="message" rows="4" cols="40"></textarea>
-              <button onClick={this.onClick.bind(this)}>message</button>
+          <div className="footer">
+            <div className="message-are">
+              <div className="display-message">
+                {this.messageState.messageList.map(message => <p>{message}</p>)}
+              </div>
+              <div className="message-form">
+                <textarea ref="messageForm"
+                  className="textarea"
+                  onChange={this.onChange.bind(this)} />
+                <div className="operation">
+                  <button onClick={this.onClick.bind(this)}
+                    disabled={!this.messageState.messageEnterd}>
+                    <FontAwesomeIcon className={"sendicon " + (this.messageState.messageEnterd ? "sendable" : "")} icon={['fas', 'paper-plane']} />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
