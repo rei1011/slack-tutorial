@@ -1,7 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react";
-import MessageState from "./MessageState";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import MessageState from "./MessageState";
+import Channel from "./Channel";
 
 
 @observer
@@ -31,11 +33,9 @@ export default class WorkSpace extends React.Component {
             <div className="account">
               <span>account</span>
             </div>
-            <div className="group">
-              <span>group</span>
-            </div>
+            <Channel />
           </div>
-          <div className="footer">
+          <div className="main">
             <div className="message-are">
               <div className="display-message">
                 {this.messageState.messageList.map(message => <p>{message}</p>)}
