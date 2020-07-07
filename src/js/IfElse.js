@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class If extends React.Component {
+export default class IfElse extends React.Component {
 
   children;
 
@@ -8,7 +8,9 @@ export default class If extends React.Component {
     this.children = "";
 
     if(this.props.test) {
-      this.children = this.props.children;
+      this.children = this.props.children[0];
+    } else {
+      this.children = this.props.children[1];
     }
 
     return (

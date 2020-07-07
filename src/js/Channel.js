@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 
 import ChannelState from "./ChannelState";
 import If from "./If";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 @observer
@@ -20,13 +21,24 @@ export default class Channel extends React.Component {
 
   render() {
     return (
-      <div className="group">
-        <span>チャンネル</span>
-        <button onClick={this.startEditChannelMode.bind(this)}>new</button>
-        <button onClick={this.endEditChannelMode.bind(this)}>close</button>
-        <If test={this.channelState.editChannelMode}>
-          <input type="text"></input>
-        </If>
+      <div className="channel">
+        <div className="channel_head">
+          <FontAwesomeIcon className="show_list_button" icon={['fas', 'caret-right']} /> 
+          <span>チャンネル</span>
+          <If test={!this.channelState.editChannelMode}>
+            <button className="create" onClick={this.startEditChannelMode.bind(this)}>
+              <FontAwesomeIcon icon={['fa', 'plus']} />
+            </button>
+          </If>
+        </div>
+        <div className="new_channel">
+          <If test={this.channelState.editChannelMode}>    
+            <input type="text"></input>
+            <button className="cancel" onClick={this.endEditChannelMode.bind(this)}>
+              <FontAwesomeIcon icon={['fas', 'times']} />
+            </button>
+          </If>
+        </div>
       </div>
     );
   }
