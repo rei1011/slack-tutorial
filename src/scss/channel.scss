@@ -1,0 +1,38 @@
+.channel {
+  padding: 0 10px;
+
+  .channel_head {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-top: 10px;
+
+    .show_list_button {
+      margin-right: 10px;
+    }
+
+    .create {
+      margin-top: 3px;
+      float: right;
+    }
+  }
+
+  button {
+    color: #FFFFFF;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .new_channel {
+    margin-top: 10px;
+  }
+
+  .cancel {
+    margin-top: 3px;
+    float: right;
+  }
+}

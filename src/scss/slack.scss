@@ -66,10 +66,6 @@ body {
   textarea {
     border: 0px;
     border-bottom: 1px solid #989798;
-
-    &:focus {
-      outline: none;
-    }
   }
 }
 
@@ -112,5 +108,3 @@ body {
     }
   }
 }
-
-
