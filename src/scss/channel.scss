@@ -17,7 +17,7 @@
     }
   }
 
-  button {
+  .create {
     color: #FFFFFF;
     background-color: transparent;
     border: none;
@@ -29,6 +29,11 @@
 
   .new_channel {
     margin-top: 10px;
+    
+    input {
+      border: none;
+      outline: none;
+    }
   }
 
   .cancel {

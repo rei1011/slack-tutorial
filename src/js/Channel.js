@@ -1,43 +1,38 @@
 import React from "react";
 import { observer } from "mobx-react";
-
-import ChannelState from "./ChannelState";
-import If from "./If";
+import IfElse from "./IfElse";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ChannelModal from "./ChannelModal";
+import ChannelModalState from "./ChannelModalState"
 
 
 @observer
 export default class Channel extends React.Component {
 
-  channelState = new ChannelState();
+  channelModalState = new ChannelModalState();
 
-  startEditChannelMode() {
-    this.channelState.setEditChannelMode(true);
-  }
-
-  endEditChannelMode() {
-    this.channelState.setEditChannelMode(false);
+  openModal() {
+    this.channelModalState.open();
   }
 
   render() {
     return (
-      <div className="channel">
+      <div className="channel" id="channel">
         <div className="channel_head">
           <FontAwesomeIcon className="show_list_button" icon={['fas', 'caret-right']} /> 
           <span>チャンネル</span>
-          <If test={!this.channelState.editChannelMode}>
-            <button className="create" onClick={this.startEditChannelMode.bind(this)}>
+          <IfElse test={this.channelModalState.modalIsShow}>
+            <div className="new_channel">
+              {/* <input type="text"></input>
+              <button className="cancel" onClick={this.endEditChannelMode.bind(this)}>
+                <FontAwesomeIcon icon={['fas', 'times']} />
+              </button> */}
+              <ChannelModal channelModalState={this.channelModalState}/>
+            </div>
+            <button className="create" onClick={this.openModal.bind(this)}>
               <FontAwesomeIcon icon={['fa', 'plus']} />
             </button>
-          </If>
-        </div>
-        <div className="new_channel">
-          <If test={this.channelState.editChannelMode}>    
-            <input type="text"></input>
-            <button className="cancel" onClick={this.endEditChannelMode.bind(this)}>
-              <FontAwesomeIcon icon={['fas', 'times']} />
-            </button>
-          </If>
+          </IfElse>
         </div>
       </div>
     );
