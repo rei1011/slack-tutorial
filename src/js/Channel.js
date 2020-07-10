@@ -23,10 +23,6 @@ export default class Channel extends React.Component {
           <span>チャンネル</span>
           <IfElse test={this.channelModalState.modalIsShow}>
             <div className="new_channel">
-              {/* <input type="text"></input>
-              <button className="cancel" onClick={this.endEditChannelMode.bind(this)}>
-                <FontAwesomeIcon icon={['fas', 'times']} />
-              </button> */}
               <ChannelModal channelModalState={this.channelModalState}/>
             </div>
             <button className="create" onClick={this.openModal.bind(this)}>
