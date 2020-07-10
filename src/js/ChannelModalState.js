@@ -1,6 +1,5 @@
 import { action, observable } from "mobx";
 
-
 export default class ChannelModalState {
 
   @observable modalIsShow = false;
