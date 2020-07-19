@@ -2,26 +2,35 @@ import React from 'react';
 import Modal from 'react-modal';
 import { observer } from "mobx-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ChannelState from "./ChannelState";
 
 
 Modal.setAppElement('#app')
 
 @observer
 export default class ChannelModal extends React.Component {
-  
-  // afterOpenModal() {
-  //   this.subtitle.style.color = '#f00';
-  // }
+
+  channelState = this.props.channelState;
+  channelModalState = this.props.channelModalState;
 
   closeModal() {
-    this.props.channelModalState.close();
+    this.channelModalState.close();
+    this.channelState.clearNewChannel();
+  }
+
+  createChannel() {
+    this.channelState.setChannelList();
+    this.closeModal();
+  }
+
+  onChangeNewChannel(event) {
+    this.channelState.setNewChannel(event.target.value);
   }
 
   render() {
     return (
       <Modal
-        isOpen={this.props.channelModalState.modalIsShow}
-        // onAfterOpen={this.afterOpenModal.bind(this)}
+        isOpen={this.channelModalState.modalIsShow}
         onRequestClose={this.closeModal.bind(this)}
         className="create-channel-modal"
         overlayClassName="create-channel-overlay"
@@ -31,10 +40,16 @@ export default class ChannelModal extends React.Component {
           <button className="close-modal" onClick={this.closeModal.bind(this)}><FontAwesomeIcon icon={['fas', 'times']} /></button>
         </div>
         <div className="modal-body">
-          <input className="new-class-name" type="text"></input>
+          <input className="new-class-name"
+            type="text"
+            value={this.channelState.newChannel}
+            onChange={this.onChangeNewChannel.bind(this)}
+          />
         </div>
         <div className="modal-footer">
-          <button className="create-channel">作成</button>
+          <button className="create-channel" onClick={this.createChannel.bind(this)}>
+            作成
+          </button>
         </div>
       </Modal>
     );

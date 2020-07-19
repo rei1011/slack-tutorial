@@ -23,11 +23,12 @@
 .modal-header {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid gray;
   height: 2.5rem;
 
   .modal-header-name {
     margin: auto 2rem;
+    font-weight: bold;
   }
   
   .close-modal {
@@ -51,6 +52,12 @@
   .new-class-name {
     margin-top: 1rem;
     width: 70%;
+    outline: none;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 

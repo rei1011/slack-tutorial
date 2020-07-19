@@ -1,35 +1,56 @@
 import React from "react";
 import { observer } from "mobx-react";
 import IfElse from "./IfElse";
+import If from "./If";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ChannelModal from "./ChannelModal";
 import ChannelModalState from "./ChannelModalState"
+import ChannelState from "./ChannelState";
 
 
 @observer
 export default class Channel extends React.Component {
 
   channelModalState = new ChannelModalState();
+  channelState = new ChannelState();
 
   openModal() {
     this.channelModalState.open();
   }
 
+  openModal() {
+    this.channelModalState.open();
+  }
+
+  expandChannelList() {
+    this.channelState.changeChannelListIsShow();
+  }
+
+
   render() {
     return (
       <div className="channel" id="channel">
         <div className="channel_head">
-          <FontAwesomeIcon className="show_list_button" icon={['fas', 'caret-right']} /> 
+          <button onClick={this.expandChannelList.bind(this)}>
+            <FontAwesomeIcon className="show_list_button" icon={['fas', 'caret-right']} />
+          </button>
           <span>チャンネル</span>
           <IfElse test={this.channelModalState.modalIsShow}>
             <div className="new_channel">
-              <ChannelModal channelModalState={this.channelModalState}/>
+              <ChannelModal
+                channelModalState={this.channelModalState}
+                channelState={this.channelState} />
             </div>
             <button className="create" onClick={this.openModal.bind(this)}>
               <FontAwesomeIcon icon={['fa', 'plus']} />
             </button>
           </IfElse>
         </div>
+        <If test={this.channelState.channelListIsShow}>
+          <div className="channel__list">
+            {this.channelState.channelList.map(channel => <p>{channel}</p>)}
+          </div>
+        </If>
       </div>
     );
   }
@@ -37,7 +58,7 @@ export default class Channel extends React.Component {
 
 
 class ChannelList extends React.Component {
-  
+
   render() {
     return (
       <p>group_1</p>
