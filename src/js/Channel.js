@@ -18,10 +18,6 @@ export default class Channel extends React.Component {
     this.channelModalState.open();
   }
 
-  openModal() {
-    this.channelModalState.open();
-  }
-
   expandChannelList() {
     this.channelState.changeChannelListIsShow();
   }
@@ -31,20 +27,23 @@ export default class Channel extends React.Component {
     return (
       <div className="channel" id="channel">
         <div className="channel_head">
-          <button onClick={this.expandChannelList.bind(this)}>
-            <FontAwesomeIcon className="show_list_button" icon={['fas', 'caret-right']} />
-          </button>
-          <span>チャンネル</span>
-          <IfElse test={this.channelModalState.modalIsShow}>
-            <div className="new_channel">
-              <ChannelModal
-                channelModalState={this.channelModalState}
-                channelState={this.channelState} />
-            </div>
-            <button className="create" onClick={this.openModal.bind(this)}>
-              <FontAwesomeIcon icon={['fa', 'plus']} />
+          <div className="channel_head__main">
+            <button onClick={this.expandChannelList.bind(this)}>
+              <FontAwesomeIcon className={"show_list_button " + (this.channelState.channelListIsShow ? "show" : "")}
+                icon={['fas', 'caret-right']} />
             </button>
-          </IfElse>
+            <span>チャンネル</span>
+            <IfElse test={this.channelModalState.modalIsShow}>
+              <div className="new_channel">
+                <ChannelModal
+                  channelModalState={this.channelModalState}
+                  channelState={this.channelState} />
+              </div>
+              <button className="create" onClick={this.openModal.bind(this)}>
+                <FontAwesomeIcon icon={['fa', 'plus']} />
+              </button>
+            </IfElse>
+          </div>
         </div>
         <If test={this.channelState.channelListIsShow}>
           <div className="channel__list">
@@ -52,16 +51,6 @@ export default class Channel extends React.Component {
           </div>
         </If>
       </div>
-    );
-  }
-}
-
-
-class ChannelList extends React.Component {
-
-  render() {
-    return (
-      <p>group_1</p>
     );
   }
 }
