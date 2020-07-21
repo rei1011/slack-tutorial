@@ -3,17 +3,28 @@
 
   .channel_head {
     display: inline-block;
-    vertical-align: middle;
     width: 100%;
-    margin-top: 10px;
+    height: 2rem;
+
+    .channel_head__main {
+      vertical-align: middle;
+      margin-top: 1rem;
+    }
 
     .show_list_button {
       margin-right: 10px;
+      color: #FFFFFF;
+      transition: all 100ms 0s ease;
+      font-size: 1rem;
+
+      &.show {
+        transform : rotate(90deg);
+      }
     }
 
     .create {
-      margin-top: 3px;
       float: right;
+      font-size: 1rem;
     }
   }
 
