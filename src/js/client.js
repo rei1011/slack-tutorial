@@ -14,3 +14,8 @@ const app = document.getElementById("app");
 
 ReactDOM.render(<WorkSpace/>, app);
 
+if(window.cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}
