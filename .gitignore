@@ -68,5 +68,7 @@ typings/
 
 # End of https://www.gitignore.io/api/node,bower
 
-src/client.min.js
+www/client.min.js
 
+platforms
+plugins

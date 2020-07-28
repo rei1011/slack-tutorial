@@ -1,0 +1,54 @@
+.channel {
+  padding: 0 10px;
+
+  .channel_head {
+    display: inline-block;
+    width: 100%;
+    height: 2rem;
+
+    .channel_head__main {
+      vertical-align: middle;
+      margin-top: 1rem;
+    }
+
+    .show_list_button {
+      margin-right: 10px;
+      color: #FFFFFF;
+      transition: all 100ms 0s ease;
+      font-size: 1rem;
+
+      &.show {
+        transform : rotate(90deg);
+      }
+    }
+
+    .create {
+      float: right;
+      font-size: 1rem;
+    }
+  }
+
+  .create {
+    color: #FFFFFF;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .new_channel {
+    margin-top: 10px;
+    
+    input {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .cancel {
+    margin-top: 3px;
+    float: right;
+  }
+}
