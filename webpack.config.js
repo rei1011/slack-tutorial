@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const path = require('path');
 const tmp = "";
 const tmp2 = "";
+const tmp3 = "";
 
 module.exports = {
   context: path.join(__dirname, "src"),
