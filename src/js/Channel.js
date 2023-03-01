@@ -16,6 +16,7 @@ export default class Channel extends React.Component {
 
   openModal() {
     this.channelModalState.open();
+    const tmp = "";
   }
 
   expandChannelList() {
