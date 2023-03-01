@@ -6,6 +6,7 @@ const path = require('path');
 const tmp = "";
 const tmp2 = "";
 const tmp3 = "";
+const tmp4 = "";
 
 module.exports = {
   context: path.join(__dirname, "src"),
