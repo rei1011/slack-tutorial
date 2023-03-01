@@ -3,6 +3,7 @@ const MODE = "development";
 const enabledSourceMap = MODE === "development";
 const webpack = require('webpack');
 const path = require('path');
+const tmp = "";
 
 module.exports = {
   context: path.join(__dirname, "src"),
