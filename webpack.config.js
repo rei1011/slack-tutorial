@@ -10,6 +10,7 @@ const tmp4 = "";
 const tmp5 = "";
 const tmp6 = "";
 const tmp7 = "";
+const tmp8 = "";
 
 module.exports = {
   context: path.join(__dirname, "src"),
